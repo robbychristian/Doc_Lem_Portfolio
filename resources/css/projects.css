@@ -1,0 +1,160 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+  }
+  
+  
+  body::-webkit-scrollbar {
+    width: 0.4rem;             
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: transparent;      
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: #ef4444;   
+    
+  }
+  
+  .block {
+    background-color: #ef4444;
+  }
+  
+  
+  .slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .card {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background: #fff;
+  }
+  
+  .card-img {
+    background-position: center;
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .card-content {
+    margin-left: 100%;
+    padding: 10% 5%;
+    box-sizing: border-box;
+    width: 100%;
+    height:100%;
+    background: #fff;
+  }
+  
+  .card-header {
+    font-weight: 700;
+    font-size: 54px;
+    text-transform: capitalize;
+    line-height: 1;
+    margin: 3vmin 0 3.5vmin;
+    color: #fff;
+  }
+  
+  .card-para {
+    font-size: 1.6vmin;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 2.5vmin;
+    color: #fff;
+  
+  }
+  
+  .prevnext {
+    position: absolute;
+    width: 4vmin;
+    height: 8vmin;
+    right: 5%;
+    bottom: 0;
+    top: 70%;
+    color: #fff;
+    margin: auto 0;
+  }
+  
+  .pn-btn {
+    color: #ef4444;
+    width: 100%;
+    height: 50%;
+    border: 0;
+    background-color: transparent;
+    font-size: 20px;
+  }
+  
+  #prev, #next {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  #prev:focus, #next:focus {
+    outline: none;
+  }
+  
+  #prev:hover:after, #next:hover:after {
+    opacity: 1;
+  }
+  
+  #prev:after, #next:after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  
+  #prev:after {
+    content: "↑"
+  }
+  
+  #next:after {
+    content: "↓"
+  }
+  
+  #inquiries-btn {
+    position: fixed;
+    top: 0;
+    right: 5%;
+    z-index: 10;
+    margin-top: 3rem;
+  }
+  
+  #chatbot-btn {
+    position: fixed;
+    bottom: 7%;
+    left: 5%;
+    z-index: 99; 
+  }
+  
+  #chat-bot {
+    position: fixed;
+    bottom: 13%;
+    left: 5%;
+    z-index: 99;
+  }
+  
+  

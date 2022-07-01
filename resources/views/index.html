@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Lemuel Rodolfo Braña | Organization & Project Development Consultancy</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/css/uikit.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="hover-min.css">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+  <link rel="icon" href="doc lem favicon.png">
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[100px] overflow-y-auto text-center border border-t-0 border-l-0 border-b-0 border-zinc-300 h-screen bg-white z-40 hidden lg:block">
+    <div class="flex flex-col justify-between h-full">
+      <div class="">
+        <a href="index.html"><img src="doc lem logo - slate - 900.png" alt="" srcset=""></a>
+      </div>
+      <!-- Social Media Accounts -->
+      <div class="mb-10">
+        <ul class="list-none space-y-2">
+          <li class="hover:text-red-500">
+            <i class="fa-brands fa-facebook-f"></i>
+          </li>
+          <li class="hover:text-red-500">
+            <i class="fa-brands fa-instagram"></i>
+          </li>
+          <li class="hover:text-red-500">
+            <i class="fa-brands fa-behance"></i>
+          </li>
+          <li class="hover:text-red-500">
+            <i class="fa-brands fa-twitter"></i>
+          </li>
+          <li class="hover:text-red-500">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Main NavBar -->
+    <nav class="fixed z-44 left-44 hidden lg:block">
+      <div class="container mx-auto">
+        <div class="flex p-2 mt-6">
+          <div class="space-x-6">
+            <a href="#home" class="pb-2">Home</a>
+            <a href="#about-me" class="pb-2">About Me</a>
+            <a href="#education" class="pb-2">Education</a>
+            <a href="#experience" class="pb-2">Experience</a>
+            <a href="#certifications" class="pb-2">Certifications</a>
+            <a href="project.html" class="pb-2">Projects</a>
+          </div>
+        </div>
+        <!-- Chatbot Button Trigger -->
+        <div class="mt-8" id="inquiries-btn">
+          <button uk-toggle="target: #modal" class="text-red-500 font-medium" type="button">
+            <i class="fa-solid fa-circle-info mr-2"></i> Inquiries
+          </button>
+        </div>
+      </div>
+    </nav>
+  
+  <!-- Chatbot -->
+  <form action="" id="chat-bot" class="border border-slate-400 bg-white h-[30rem] w-[20rem] overflow-y-auto" hidden>
+    <div class="header bg-red-500 p-4 mb-4">
+      <h4 class="text-white text-left">How Can I Help You?</h4>
+    </div>
+    <div class="p-4 space-y-4">
+  
+        <!-- User Reply Sample -->
+        <div class="bg-red-500 float-right p-2 rounded-md">
+          <p class="text-white">Insert User Reply Here</p>
+        </div>
+
+        <!-- Chatbot Reply Sample -->
+        <div class="bg-slate-200 rounded-md p-2 clear-both float-left">
+          <p>Insert Chatbot Reply Here</p>
+        </div>
+
+        <div class="bg-red-500 float-right p-2 rounded-md clear-both">
+          <p class="text-white">Insert User Reply Here</p>
+        </div>
+
+        <!-- Chatbot Reply Sample -->
+        <div class="bg-slate-200 rounded-md p-2 clear-both float-left">
+          <p>Insert Chatbot Reply Here</p>
+        </div>
+    </div>
+  </form>
+
+  <!-- Chatbot Button Bottom Right -->
+  <button uk-toggle="target: #chat-bot" type="button" id="chatbot-btn" class="text-white bg-red-500 rounded-full px-6 py-3">
+    <i class="fa-solid fa-comment"></i>
+  </button>
+
+  <!-- Email Modal -->
+  <div id="modal" uk-modal class="uk-flex-top">
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <div class="flex flex-row justify-between mb-4">
+          <div class="">
+            <i class="fa-solid fa-message text-red-500"></i>
+          </div>
+          <!-- Close Button -->
+          <button class="uk-modal-close" type="button">
+            <i class="fa-solid fa-x"></i>
+          </button>
+        </div>
+        <!-- Modal Text -->
+        <div class="space-y-4">
+          <h2 class="uk-modal-title">Get In Touch</h2>
+          <p class="text-neutral-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, dignissimos!</p>
+        </div>
+        <!-- Form -->
+        <form action="" class="space-y-4 mt-4">
+          <!-- Subject -->
+          <div>
+            <small class="font-bold text-slate-700">
+              <label for="">Subject</label>
+            </small>
+            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+            focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500" placeholder="Enter your subject"/>
+          </div>
+          <!-- Email -->
+          <div>
+            <small class="font-bold text-slate-700">
+              <label for="">Email</label>
+            </small>
+            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+            focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500" placeholder="Enter your email"/>
+          </div>
+          <!-- Textarea -->
+          <div>
+            <small class="font-bold text-slate-700">
+              <label for="">Message</label>
+            </small>
+            <textarea name="" id="" cols="30" rows="10" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+            focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+            placeholder="Enter your message"></textarea>
+          </div>
+
+          <div class="float-right">
+            <div class="flex flex-row">
+              <button class="uk-modal-close rounded-full bg-slate-600 text-white px-6 py-2 mr-3" type="button">Close</button>
+              <button class="rounded-full bg-red-500 text-white px-6 py-2" type="button">Send Message</button>
+            </div>
+          </div>
+        </form>
+    </div>
+  </div>
+
+  <div class="gsap-container">
+    <!--  Header -->
+    <section class="panel w-screen" id="home">
+      <div class="container mx-auto -mt-20">
+        <!-- Grid Container -->
+        <div class="grid grid-cols-1 items-center h-screen md:grid-cols-2">
+          <!-- Greetings Message -->
+          <div class="px-10 md:px-0 space-y-3 md:space-y-4 text-center md:text-left -mt-32 md:-mt-0 animate__animated animate__fadeInLeft animate__slower">
+            <small class="hidden md:block font-normal">Welcome to</small>
+            <p class="text-2xl md:text-6xl font-extrabold text-slate-900"><span class="text-red-500">L</span>emuel Rodolfo Braña</p>
+            <p class="font-normal text-sm md:text-2xl">Organization and Project Development Consultancy</p>
+            <button uk-toggle="target: #modal" class="rounded-none px-12 py-3 text-white bg-red-500 hover:bg-red-600">Contact Me</button>
+            <br>
+            <button>
+              <small class="sm:hidden text-red-500">
+                <i class="fa-solid fa-eye mr-1"></i>
+                <a href="project.html">View My Projects</a>
+              </small>
+            </button>
+          </div>
+          <!-- Image of Doc Lem -->
+          <div class="order-first md:order-last mt-32 md:mt-0 animate__animated animate__fadeIn animate__slower animate__delay-2s">
+            <img src="doc lem logo - slate - 900.png" alt="" srcset="">
+          </div>
+        </div>
+        <!-- Flex Container -->
+        <div class="hidden md:flex -mt-32 animate__animated animate__fadeInUp animate__slow animate__delay-3s">
+          <!-- Email -->
+          <div class="border-r-2 pr-16 border-slate-900 space-y-2 mr-20">
+            <label for="" class="font-bold text-slate-900">Email</label>
+            <p class="text-neutral-400">lemuelbrana3@gmail.com</p>
+          </div>
+          <!-- Phone -->
+          <div class="border-r-2 pr-16 border-slate-900 space-y-2 mr-20">
+            <label for="" class="font-bold text-slate-900">Contact Number</label>
+            <p class="text-neutral-400">0917-832-5710</p>
+          </div>
+          <div class="space-y-2">
+            <label for="" class="font-bold text-slate-900">Office Address</label>
+            <p class="text-neutral-400">Suite 402 Jade Place Condo 33 Visayas Avenue, Bgy Vasra Quezon City 1128</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- About Me -->
+    <section class="panel w-screen scrollspy" id="about-me">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center h-screen gap-10">
+          <!-- About Me -->
+          <div class="px-10 md:px-0 space-y-3 md:space-y-6">
+            <h2 class="text-2xl md:text-4xl font-bold text-slate-900">About Me</h2>
+            <div class="block h-1 md:h-2 w-20"></div>
+            <p class="text-sm md:text-base text-neutral-400">
+              Dr. Lemuel Rodolfo Brana has more than 28 years of combined experience in Project and Program Management (PMBOK), Data Analytics and Management, Organization Transformation and Development, Management Information Systems, Change Management, Technology/Digital Transformation, Business Process Re-Engineering (BPR), Information & Communications Technology (ICT) and Social Protection Programs, Systems and Processes. This also includes a combination of experience in Integrated Quality Management Systems & Six Sigma, managing software development projects, maintenance projects, solutions delivery and deployment of complex information systems (including cloud-based) using industry world-standard software development and engineering methodologies (SWEBOK, and CMMi), information security, data privacy, business analytics, data sciences, software development, software testing, quality assurance and business and system analysis work.
+            </p>
+            <p class="hidden md:block text-sm md:text-base text-neutral-400">
+              He is a seasoned technical project and change manager of service delivery teams of various local and foreign organizations tasked to develop , roll-out & train and maintain complex application systems. He has experience managing and operating IT environments such as SAP, Oracle, Microsoft and Linux servers, Virtualized applications (VM), web based applications accessed from users located nationwide. He has been managing project teams in the Maintenance and Support of an application or set of applications using the appropriate business measurements and terms and conditions for the project according to the project charter, project agreement or contract. This includes the Application Services aspects of Service Delivery/Service Management. He manages overall performance responsibility for managing scope, cost, schedule, and contractual deliverables which includes applying techniques for planning, tracking,change control,and risk management.
+            </p>
+          </div>
+          <!-- About Me Continuation -->
+          <div class="space-y-6">
+            <p class="hidden md:block text-sm md:text-base text-neutral-400">
+              He has experience working across and communicating with a variety of Information Systems audiences (e.g. business and technical resources) from requirements gathering through design, build, test and deployment to operations. Able to take complex, technical information and translate it both verbally and in diagrammatic form in a clear, concise, and professional manner. Able to understand business requirements and convert them into solution options and designs. He is also responsible for managing all project resources, including subcontractors, and for establishing an effective communication plan with the project team and the customer. He also provides day to day direction to the project team and regular project status to the customer.
+            </p>
+            <p class="hidden md:block text-sm md:text-base text-neutral-400">
+              As a season strategy developer and team performance enhancer, he has extensive experience in setting and maintaining support standards and processes to optimize expectations that meet or exceed Operational and Development Service Level Agreements (SLAs). He was also invited as industry speaker namely: (1) University of Guam as Plenary Speaker in the First International Conference on Technology, Education, Assessment and Management; (2) Agile Testing Summit; (3) The 4th Industrial Revolution: Preparing the Philippines for the Jobs of the Future organized by Government-Academe-Industry Network, Inc.; (4) Youth for IT Conferences since 2009 upto present; (5) FEU Commencement Speaker; (6) NEU Commencement Speaker; and many other local and international conferences.
+            </p>
+          </div>
+    </section>
+
+    <!-- Education -->
+    <section class="panel w-screen px-32 scrollspy" id="education">
+      <div class="container mx-auto">
+        <div class="space-y-6">
+          <h2 class="text-2xl md:text-4xl font-bold mt-10 md:mt-32 text-slate-900">Educational Background</h2>
+          <div class="block h-1 md:h-2 w-20"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+          <!-- Education Part 1 -->
+          <div class="timeline-area space-y-6 border-l px-0 md:px-6 w-60 h-screen md:w-full">
+            <div class="timeline-item bg-red-500 p-6 relative space-y-3">
+              <h2 class="text-lg font-bold text-white">University of the Philippines, Diliman Quezon City (1993)</h2>
+              <p class="text-sm text-white hidden md:block">College of Business Administration - B.S. Business Administration Degree (Major subjects in Finance)</p>
+            </div>
+            <div class="timeline-item bg-red-500 p-6 relative space-y-2">
+              <h2 class="text-lg font-bold text-white">University of the Philippines, Diliman Quezon City (2002)</h2>
+              <p class="text-sm text-white hidden md:block">Technology Management Center - Master of Technology Management Degree (Major in Business & Industry)</p>
+            </div>
+            <div class="timeline-item bg-red-500 p-6 relative space-y-2">
+              <h2 class="text-lg font-bold text-white">University of the Philippines, Diliman Quezon City (2004 - 2006)</h2>
+              <p class="text-sm text-white hidden md:block">UP Information Technology Development Center - Certificate Courses on: Project Management, Change Management, Embedded Systems, Network Systems, Software Quality Assurance & Testing, User Experience & Interaction Design, Software Engineering</p>
+            </div>
+            <div class="timeline-item bg-red-500 p-6 relative space-y-2">
+              <h2 class="text-lg font-bold text-white">University of the Philippines, Diliman Quezon City (2007)</h2>
+              <p class="text-sm text-white hidden md:block">College of Education - PhD. in Education Degree</p>
+            </div>
+          </div>
+          <!-- Education Part 2 -->
+          <div class="timeline-area space-y-6 border-l px-6 hidden md:block">
+            <div class="timeline-item bg-red-500 p-6 relative space-y-2">
+              <h2 class="text-lg font-bold text-white">Small Business Training Institute, South Korea (Ansan Campus - 2008)</h2>
+              <p class="text-sm text-white">Certificate Course on Business Process Re-engineering</p>
+            </div>
+            <div class="timeline-item bg-red-500 p-6 relative space-y-2">
+              <h2 class="text-lg font-bold text-white">Association for Overseas Technical Cooperation, Japan (Aichi Campus - 2009)</h2>
+              <p class="text-sm text-white">Certificate Course on Project Management</p>
+            </div>
+            <div class="timeline-item bg-red-500 p-6 relative space-y-2">
+              <h2 class="text-lg font-bold text-white">Japan International Cooperation Agency, Japan (Tokyo International Center - 2010)</h2>
+              <p class="text-sm text-white">Certificate Course on Digital Transformation Management</p>
+            </div>
+            <div class="timeline-item bg-red-500 p-6 relative space-y-2">
+              <h2 class="text-lg font-bold text-white">Indian School of Business, Hyderabad, India (2018)</h2>
+              <p class="text-sm text-white">Certificate Course on Executive Leadership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section class="panel w-screen px-44 hidden md:block" id="experience">
+      <div class="space-y-6">
+        <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mt-32">Work & Experience</h2>
+        <div class="block h-1 md:h-2 w-20"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+        <div class="space-y-4">
+        <!-- List Item 1 -->
+        <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+          <!-- Heading -->
+          <div class="rounded-l-full bg-red-100 md:bg-transparent">
+            <div class="flex items-center space-x-2">
+              <div class="px-4 py-2 text-white rounded-full md:py-1 bg-red-500">
+                01
+              </div>
+              <h3 class="text-base font-bold md:mb-4 md:hidden">
+                Business Process Expert
+              </h3>
+            </div>
+          </div>
+          <!-- End of Heading -->
+          <div>
+            <h3 class="hidden mb-4 text-lg font-bold md:block">
+              Business Process Expert
+            </h3>
+            <p class="text-gray-400">
+              The consultant evaluated the current business processes of the Program and recommended improvements/enhancements during the workshop. This also included conducting/facilitating consultation meetings and other activities necessary in developing the Business Process Flow with stakeholders
+            </p>
+          </div>
+        </div>
+        <!-- End of List Item 1 -->
+
+        <!-- Start of List Item 2 -->
+        <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+          <!-- Heading -->
+          <div class="rounded-l-full bg-red-100 md:bg-transparent">
+            <div class="flex items-center space-x-2">
+              <div class="px-4 py-2 text-white rounded-full md:py-1 bg-red-500">
+                02
+              </div>
+              <h3 class="text-base font-bold md:mb-4 md:hidden">
+                ICT Consultant and Specialist
+              </h3>
+            </div>
+          </div>
+          <!-- End of Heading -->
+          <div>
+            <h3 class="hidden mb-4 text-lg font-bold md:block">
+              ICT Consultant and Specialist
+            </h3>
+            <p class="text-gray-400">
+              Assisting ASEAN countries to lay the foundation for achieving Universal Health Coverage(UHC). Contributing to the development of the ASEAN social protection system by establishing a quarantine system to respond to national disasters such as COVID-19 and the risk of other infectious diseases in the future.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+          <!-- Heading -->
+          <div class="rounded-l-full bg-red-100 md:bg-transparent">
+            <div class="flex items-center space-x-2">
+              <div class="px-4 py-2 text-white rounded-full md:py-1 bg-red-500">
+                03
+              </div>
+              <h3 class="text-base font-bold md:mb-4 md:hidden">
+                ICT Consultant and Specialist
+              </h3>
+            </div>
+          </div>
+          <!-- End of Heading -->
+          <div>
+            <h3 class="hidden mb-4 text-lg font-bold md:block">
+              ICT Consultant and Specialist
+            </h3>
+            <p class="text-gray-400">
+              Some of my responsibilities in this project includes: Developed Database Management System. Captured all type of data and information. Process data and create reports. ICT support for team of scientists, civil engineers and environmental experts.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+          <!-- Heading -->
+          <div class="rounded-l-full bg-red-100 md:bg-transparent">
+            <div class="flex items-center space-x-2">
+              <div class="px-4 py-2 text-white rounded-full md:py-1 bg-red-500">
+                04
+              </div>
+              <h3 class="text-base font-bold md:mb-4 md:hidden">
+                BPR & Training & Digital Transformation Consultant
+              </h3>
+            </div>
+          </div>
+          <!-- End of Heading -->
+          <div>
+            <h3 class="hidden mb-4 text-lg font-bold md:block">
+              BPR & Training & Digital Transformation Consultant
+            </h3>
+            <p class="text-gray-400">
+              Working understanding of the concepts of Streamlining and Process Re-engineering; Re-designed logistics management process of
+              the client's products and services. Identification and finalization of List of the client's Critical Services and properly classify critical G2B, G2C, and
+              G2G services;
+            </p>
+          </div>
+        </div>
+        </div>
+        <!-- Work Experience Continuation -->
+        <div class="space-y-4">
+          <!-- List Item 1 -->
+        <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+          <!-- Heading -->
+          <div class="rounded-l-full bg-red-100 md:bg-transparent">
+            <div class="flex items-center space-x-2">
+              <div class="px-4 py-2 text-white rounded-full md:py-1 bg-red-500">
+                05
+              </div>
+              <h3 class="text-base font-bold md:mb-4 md:hidden">
+                Project Management Consultant, Change Management & IT Expert
+              </h3>
+            </div>
+          </div>
+          <!-- End of Heading -->
+          <div>
+            <h3 class="hidden mb-4 text-lg font-bold md:block">
+              Project Management Consultant, Change Management & IT Expert
+            </h3>
+            <p class="text-gray-400">
+              I am the Overall Project Management Consultant of the team members composed of technical consultants covering (ICT, Finance, and Taxation). I provided the assessment of risks in implementation, including legal, regulatory, operational, IT, and human resource related risks, and identify mitigating measures.
+          </div>
+        </div>
+        <!-- End of List Item 1 -->
+
+        <!-- Start of List Item 2 -->
+        <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+          <!-- Heading -->
+          <div class="rounded-l-full bg-red-100 md:bg-transparent">
+            <div class="flex items-center space-x-2">
+              <div class="px-4 py-2 text-white rounded-full md:py-1 bg-red-500">
+                06
+              </div>
+              <h3 class="text-base font-bold md:mb-4 md:hidden">
+                ICT Project Management, Change Management & Process Management Consultant
+              </h3>
+            </div>
+          </div>
+          <!-- End of Heading -->
+          <div>
+            <h3 class="hidden mb-4 text-lg font-bold md:block">
+              ICT Project Management, Change Management & Process Management Consultant
+            </h3>
+            <p class="text-gray-400">
+              Some of my responsibilities in this job includes: Overall IT and Senior Technical Officer & Delivery Officer, Solutions Architect, ITIL and ISO Officer,
+              ISSP and ISMS Senior Officer. Provides a wide variety of administrative functions.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+          <!-- Heading -->
+          <div class="rounded-l-full bg-red-100 md:bg-transparent">
+            <div class="flex items-center space-x-2">
+              <div class="px-4 py-2 text-white rounded-full md:py-1 bg-red-500">
+                07
+              </div>
+              <h3 class="text-base font-bold md:mb-4 md:hidden">
+                AVP-level and Senior Program & Project Manager
+              </h3>
+            </div>
+          </div>
+          <!-- End of Heading -->
+          <div>
+            <h3 class="hidden mb-4 text-lg font-bold md:block">
+              AVP-level and Senior Program & Project Manager
+            </h3>
+            <p class="text-gray-400">
+              Managing Development and Application Maintenance Systems and Support projects for large U.S. and Canadian based enterprises. As service delivery program manager, he handles a combination of I.T projects assisted by a number of project managers handling several technical personnel.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+          <!-- Heading -->
+          <div class="rounded-l-full bg-red-100 md:bg-transparent">
+            <div class="flex items-center space-x-2">
+              <div class="px-4 py-2 text-white rounded-full md:py-1 bg-red-500">
+                08
+              </div>
+              <h3 class="text-base font-bold md:mb-4 md:hidden">
+                Digital Transformation Consultant
+              </h3>
+            </div>
+          </div>
+          <!-- End of Heading -->
+          <div>
+            <h3 class="hidden mb-4 text-lg font-bold md:block">
+              Digital Transformation Consultant
+            </h3>
+            <p class="text-gray-400">
+              Conducts and manages various consulting work for clients here and abroad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel w-screen" id="certifications">
+      <div class="container mx-auto">
+        <div class="space-y-6 p-12 md:p-0">
+          <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mt-10 md:mt-32">Certifications & Titles</h2>
+          <div class="block h-1 md:h-2 w-20"></div>
+        </div>
+        <div class="p-12 md:p-0 grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-6 mt-0 md:mt-10">
+          <div class="uk-card uk-card-default space-y-4 p-6 border-solid border-2 border-slate-900 hvr-float">
+            <h3 class="uk-card-title">Accredited Project Manager Certification</h3>
+            <p class="text-neutral-400 hidden md:block">Project Management is a set of Methodologies and Processes to develop great Products and Services that your Customers love! Project Management is the Science and Art of delivering Products and Services to customers with utmost possible Quality and Productivity, with minimal interruption in Business Processes and Services. Project Management aims to meet and exceed Customer Requirements while increasing Business Profit and minimizing Wasted Resources. Project Management achieves these challenging objectives by deploying a structured Delivery Process and a data-driven Organizational Excellence Culture.</p>
+          </div>
+          <div class="uk-card uk-card-default space-y-4 p-6 border-solid border-2 border-slate-900 hvr-float">
+            <h3 class="uk-card-title">Scrum Master Accredited Certification</h3>
+            <p class="text-neutral-400 hidden md:block">A Scrum Master certification, or Scrum certification, is a credential that recognizes your competency in Scrum project management principles. It can qualify candidates to become Scrum Masters—a type of project manager that uses Scrum to complete projects. A Scrum master is a facilitator who ensures that the Scrum team follows the processes that they agreed to follow. Also, the Scrum master skillfully removes obstacles and distractions that may impede the team from meeting goals and is the liaison between the Scrum team and people or teams outside the Scrum team.</p>
+          </div>
+          <div class="uk-card uk-card-default space-y-4 p-6 border-solid border-2 border-slate-900 hvr-float">
+            <h3 class="uk-card-title">International Software Testing Qualifications Board</h3>
+            <p class="text-neutral-400 hidden md:block">ISTQB® is the leading global certification scheme in the field of software testing.
+            As of Dec 2021, ISTQB® has administered over 1.1 million exams and issued more than 806k certifications in over 130 countries. With its extensive network of Accredited Training Providers, Member Boards, and Exam Providers, ISTQB® is one of the biggest and most established vendor-neutral professional certification schemes in the world. ISTQB® terminology is industry recognized as the defacto language in the field of software testing and connects professionals worldwide.</p>
+          </div>
+          <div class="uk-card uk-card-default space-y-4 p-6 border-solid border-2 border-slate-900 hvr-float">
+            <h3 class="uk-card-title">Certified Six Sigma Black Belt (CSSBB)</h3>
+            <p class="text-neutral-400 hidden md:block">The Certified Six Sigma Black Belt is a professional who can explain Six Sigma philosophies and principles, including supporting systems and tools. A Black Belt should demonstrate team leadership, understand team dynamics and assign team member roles and responsibilities. Black belts have a thorough understanding of all aspects of the define, measure, analyze, improve and control (DMAIC) model in accordance with Six Sigma principles. They have basic knowledge of lean enterprise concepts, are able to identify non-value-added elements and activities and are able to use specific tools.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit-icons.min.js"></script>
+</body>
+</html>
