@@ -52,7 +52,7 @@
                                         <div uk-drop="mode: click; pos: bottom-center" class="border border-1 w-40"
                                             id="dropdown-content">
                                             <ul class="bg-white">
-                                                <li class="p-2" uk-toggle="target: #edit">Edit</li>
+                                                <li class="p-2" uk-toggle="target: #edit{{ $project->id }}">Edit</li>
                                                 <hr>
                                                 <li class="p-2" id="delete{{ $project->id }}">Delete</li>
                                             </ul>
@@ -67,11 +67,13 @@
                                     <p class="font-bold text-neutral-900">{{ $project->title }}</p>
                                     <p class="text-sm text-neutral-40">{{ $project->description }}
                                     </p>
+                                    <p class="text-sm text-neutral-400">Date Updated: <span
+                                            id="dateUpdated{{ $project->id }}">{{ $project->updated_at }}</span></p>
                                 </div>
                             </div>
 
                             <!-- Modal For Edit -->
-                            <div id="edit" uk-modal class="uk-flex-top">
+                            <div id="edit{{ $project->id }}" uk-modal class="uk-flex-top">
                                 <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
                                     <div class="flex flex-row justify-between mb-4">
                                         <div class="">
@@ -141,6 +143,11 @@
                                 </div>
                             </div>
                             <script>
+                                $(document).ready(function() {
+                                    const dateUpdated = $("#dateUpdated{{ $project->id }}").html()
+                                    const formatted = moment(dateUpdated).format('LL | HH:mmA')
+                                    $("#dateUpdated{{ $project->id }}").text(formatted)
+                                })
                                 $("#delete{{ $project->id }}").click(function() {
                                     swal({
                                         icon: "warning",

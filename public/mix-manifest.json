@@ -5,6 +5,7 @@
     "/js/chatbot.js": "/js/chatbot.js",
     "/js/gsap.js": "/js/gsap.js",
     "/css/app.css": "/css/app.css",
+    "/css/swiper.bundle.min.css": "/css/swiper.bundle.min.css",
     "/css/projects.css": "/css/projects.css",
     "/css/hover-min.css": "/css/hover-min.css"
 }

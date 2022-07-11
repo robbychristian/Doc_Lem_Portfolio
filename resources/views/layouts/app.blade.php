@@ -37,6 +37,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    {{-- MOMENT JS --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/hover-min.css') }}">
@@ -88,6 +91,13 @@
                         <ul class="uk-nav-sub">
                             <li><a href="/projects" class="text-lg">View</a></li>
                             <li><a href="#addProjectModal" class="text-lg" uk-toggle>Add</a></li>
+                        </ul>
+                    </li>
+                    <li class="uk-parent">
+                        <a href="#" class="text-xl">Admins</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="/admins" class="text-lg">View</a></li>
+                            <li><a href="#addAdminModal" class="text-lg" uk-toggle>Add</a></li>
                         </ul>
                     </li>
                     <li class="uk-nav-divider"></li>
@@ -143,6 +153,36 @@
 
                 <div class="flex justify-end w-full">
                     <button id="submitExperiences"
+                        class="uk-button text-white bg-red-500 duration-300 hover:bg-red-700">Submit</button>
+                </div>
+
+            </div>
+        </div>
+        {{-- ADD ADMIN MODAL --}}
+        <div id="addAdminModal" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <div class="text-4xl mb-5">Add Admin</div>
+                <div class="uk-margin space-y-2">
+                    <div class="text-xl">Name</div>
+                    <input class="uk-input" id="adminName" type="text" placeholder="Name...">
+                </div>
+                <div class="uk-margin space-y-2">
+                    <div class="text-xl">Email</div>
+                    <input class="uk-input" id="adminEmail" type="text" placeholder="Email...">
+                </div>
+                <div class="uk-margin space-y-2">
+                    <div class="text-xl">Password</div>
+                    <input class="uk-input" id="adminPassword" type="password" placeholder="Password...">
+                </div>
+                <div class="uk-margin space-y-2">
+                    <div class="text-xl">Confirm Password</div>
+                    <input class="uk-input" id="adminConfirmPassword" type="password" placeholder="Confirm Password...">
+                </div>
+
+                <div class="flex justify-end w-full">
+                    <button id="submitNewAdmin"
                         class="uk-button text-white bg-red-500 duration-300 hover:bg-red-700">Submit</button>
                 </div>
 

@@ -5525,6 +5525,43 @@ $("#submitExperiences").click(function () {
     });
   }
 });
+$("#submitNewAdmin").click(function () {
+  var name = $("#adminName").val();
+  var email = $("#adminEmail").val();
+  var password = $("#adminPassword").val();
+  var confirmPassword = $("#adminConfirmPassword").val();
+  var formdata = new FormData();
+
+  if (name == "" || email == "" || password == "" || confirmPassword == "") {
+    sweetalert__WEBPACK_IMPORTED_MODULE_2___default()({
+      icon: "error",
+      title: "Error!",
+      text: "Some fields are not properly filled!",
+      buttons: false
+    });
+  } else if (password != confirmPassword) {
+    sweetalert__WEBPACK_IMPORTED_MODULE_2___default()({
+      icon: "error",
+      title: "Error!",
+      text: "Passwords does not match!",
+      buttons: false
+    });
+  } else {
+    sweetalert__WEBPACK_IMPORTED_MODULE_2___default()({
+      icon: "success",
+      title: "Admin added!",
+      text: "Admin successfully added!",
+      buttons: false
+    }).then(function (response) {
+      formdata.append("name", name);
+      formdata.append("email", email);
+      formdata.append("password", password);
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/addadmin", formdata).then(function (response) {
+        location.reload();
+      });
+    });
+  }
+});
 $("#deleteAll").click(function () {
   // $('input[name="locationthemes"]:checked');
   sweetalert__WEBPACK_IMPORTED_MODULE_2___default()({
@@ -5562,7 +5599,7 @@ $("#deleteAllCertifications").click(function () {
   sweetalert__WEBPACK_IMPORTED_MODULE_2___default()({
     icon: "warning",
     title: "Multiple Delete?",
-    text: "Are you sure you want to delete multiple Works and Experiences?",
+    text: "Are you sure you want to delete multiple Certifications?",
     buttons: {
       cancel: "Cancel",
       "true": "OK"
@@ -5580,8 +5617,8 @@ $("#deleteAllCertifications").click(function () {
       });
       sweetalert__WEBPACK_IMPORTED_MODULE_2___default()({
         icon: "success",
-        title: "Works and Experiences Deleted!",
-        text: "The selected works and experiences have been deleted!",
+        title: "Certification Deleted!",
+        text: "The selected Certification have been deleted!",
         buttons: false
       }).then(function (response) {
         location.reload();
@@ -5594,7 +5631,7 @@ $("#deleteAllProjects").click(function () {
   sweetalert__WEBPACK_IMPORTED_MODULE_2___default()({
     icon: "warning",
     title: "Multiple Delete?",
-    text: "Are you sure you want to delete multiple Works and Experiences?",
+    text: "Are you sure you want to delete multiple Projects?",
     buttons: {
       cancel: "Cancel",
       "true": "OK"
@@ -5612,14 +5649,53 @@ $("#deleteAllProjects").click(function () {
       });
       sweetalert__WEBPACK_IMPORTED_MODULE_2___default()({
         icon: "success",
-        title: "Works and Experiences Deleted!",
-        text: "The selected works and experiences have been deleted!",
+        title: "Projects Deleted!",
+        text: "The selected Projects have been deleted!",
         buttons: false
       }).then(function (response) {
         location.reload();
       });
     }
   });
+});
+$("#deleteAllAdmins").click(function () {
+  sweetalert__WEBPACK_IMPORTED_MODULE_2___default()({
+    icon: "warning",
+    title: "Multiple Delete?",
+    text: "Are you sure you want to delete multiple Admins?",
+    buttons: {
+      cancel: "Cancel",
+      "true": "OK"
+    }
+  }).then(function (response) {
+    if (response == "true") {
+      $("input[name='multidelete']:checked").each(function () {
+        var formdata = new FormData();
+        formdata.append("id", this.value);
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post("/deleteadmin", formdata).then(function (response) {
+          console.log(response);
+        })["catch"](function (e) {
+          console.log(e);
+        });
+      });
+      sweetalert__WEBPACK_IMPORTED_MODULE_2___default()({
+        icon: "success",
+        title: "Admin Deleted!",
+        text: "The selected Admin has been deleted!",
+        buttons: false
+      }).then(function (response) {
+        location.reload();
+      });
+    }
+  });
+});
+var swiper = new Swiper(".swiper", {
+  effect: "cards",
+  grabCursor: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  }
 });
 
 /***/ }),
@@ -41459,6 +41535,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/css/swiper.bundle.min.css":
+/*!*********************************************!*\
+  !*** ./resources/css/swiper.bundle.min.css ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
@@ -72878,6 +72967,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0,
+/******/ 			"css/swiper.bundle.min": 0,
 /******/ 			"css/projects": 0,
 /******/ 			"css/hover-min": 0
 /******/ 		};
@@ -72929,11 +73019,12 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/projects","css/hover-min"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/projects","css/hover-min"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/projects","css/hover-min"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/projects","css/hover-min"], () => (__webpack_require__("./resources/css/hover-min.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/projects","css/hover-min"], () => (__webpack_require__("./resources/css/projects.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/swiper.bundle.min","css/projects","css/hover-min"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/swiper.bundle.min","css/projects","css/hover-min"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/swiper.bundle.min","css/projects","css/hover-min"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/swiper.bundle.min","css/projects","css/hover-min"], () => (__webpack_require__("./resources/css/hover-min.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/swiper.bundle.min","css/projects","css/hover-min"], () => (__webpack_require__("./resources/css/projects.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/swiper.bundle.min","css/projects","css/hover-min"], () => (__webpack_require__("./resources/css/swiper.bundle.min.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

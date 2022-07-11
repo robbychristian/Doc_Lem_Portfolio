@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <section id="certifications">
+    <link rel="stylesheet" href="{{ asset('css/swiper.bundle.min.css') }}">
+    <section>
         <div class="flex justify-between items-center h-[10vh]">
             <div class="flex justify-center w-[45%]">
                 <div class="text-2xl text-black lg:text-4xl ">Certifications</div>
@@ -24,14 +25,26 @@ uk-flex-middle" uk-grid>
                                     </h2>
                                     <div class="block h-1 md:h-2 w-20"></div>
                                 </div>
-                                <div class="p-12 md:p-0 grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-6 mt-0 md:mt-10">
-                                    @foreach ($certifications as $details)
-                                        <div
-                                            class="uk-card uk-card-default space-y-4 p-6 border-solid border-2 border-slate-900 hvr-float">
-                                            <h3 class="uk-card-title">{{ $details->title }}</h3>
-                                            <p class="text-neutral-400 hidden md:block">{{ $details->description }}</p>
-                                        </div>
-                                    @endforeach
+
+                                <div class="swiper mt-20">
+                                    <div class="swiper-wrapper">
+                                        @foreach ($certifications as $certification)
+                                            <div class="swiper-slide border-solid border-2 border-slate-900">
+                                                <div class="space-y-4 p-6">
+                                                    <h3 class="font-bold text-3xl">{{ $certification->title }}</h3>
+                                                    <p class="text-neutral-400 hidden md:block">
+                                                        {{ $certification->description }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="relative mt-10 w-28 mx-auto">
+                                    <div class="absolute inset-x-0 bottom-0 text-sm">
+                                        <div class="swiper-button-next text-red-500"></div>
+                                        <div class="swiper-button-prev text-red-500"></div>
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -46,6 +59,7 @@ uk-flex-middle" uk-grid>
                         <th>ID</th>
                         <th>Title</th>
                         <th>Description</th>
+                        <th>Date Updated</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -61,6 +75,7 @@ uk-flex-middle" uk-grid>
                             </td>
                             <td>{{ $certification->title }}</td>
                             <td>{{ Str::substr($certification->description, 0, 100) }}...</td>
+                            <td id="dateUpdated{{ $certification->id }}">{{ $certification->updated_at }}</td>
                             <td>
                                 <span class="text-teal-500" id="edit{{ $certification->id }}" uk-icon="icon: file-edit"
                                     uk-toggle="target: #editModal{{ $certification->id }}"></span>
@@ -73,16 +88,30 @@ uk-flex-middle" uk-grid>
 
                                 <button class="uk-modal-close-default" type="button" uk-close></button>
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                    deserunt mollit anim id est laborum.</p>
+                                <div class="text-3xl mb-5">Edit Certification</div>
+                                <div class="uk-margin space-y-2">
+                                    <div class="text-lg">Title</div>
+                                    <input class="uk-input" id="certificationTitle{{ $certification->id }}"
+                                        type="text" placeholder="Title...">
+                                </div>
+                                <div class="uk-margin space-y-2">
+                                    <div class="text-lg">Description</div>
+                                    <input class="uk-input" id="certificationDescription{{ $certification->id }}"
+                                        type="text" placeholder="Description...">
+                                </div>
+                                <div class="flex justify-end w-full">
+                                    <button id="submitEdit{{ $certification->id }}"
+                                        class="uk-button text-white bg-red-500 duration-300 hover:bg-red-700">Submit</button>
+                                </div>
 
                             </div>
                         </div>
                         <script>
+                            $(document).ready(function() {
+                                const dateUpdated = $("#dateUpdated{{ $certification->id }}").html()
+                                const formatted = moment(dateUpdated).format('LL | HH:mmA')
+                                $("#dateUpdated{{ $certification->id }}").text(formatted)
+                            })
                             $("#delete{{ $certification->id }}").click(function() {
                                 swal({
                                     icon: 'warning',
@@ -131,6 +160,18 @@ uk-flex-middle" uk-grid>
                                     }
                                 }
                             })
+                            $("#submitEdit{{ $certification->id }}").click(function() {
+                                const title = $("#certificationTitle{{ $certification->id }}").val()
+                                const description = $("#certificationDescription{{ $certification->id }}").val()
+                                const formdata = new FormData()
+                                formdata.append('id', "{{ $certification->id }}")
+                                formdata.append('title', title)
+                                formdata.append('description', description)
+                                axios.post('/editcertification', formdata)
+                                    .then(response => {
+                                        location.reload()
+                                    })
+                            })
                         </script>
                     @endforeach
                 </tbody>
@@ -148,4 +189,5 @@ uk-flex-middle" uk-grid>
             </table>
         </div>
     </section>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 @endsection

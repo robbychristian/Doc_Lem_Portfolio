@@ -288,6 +288,43 @@ $("#submitExperiences").click(function () {
     }
 });
 
+$("#submitNewAdmin").click(function () {
+    const name = $("#adminName").val();
+    const email = $("#adminEmail").val();
+    const password = $("#adminPassword").val();
+    const confirmPassword = $("#adminConfirmPassword").val();
+    const formdata = new FormData();
+    if (name == "" || email == "" || password == "" || confirmPassword == "") {
+        swal({
+            icon: "error",
+            title: "Error!",
+            text: "Some fields are not properly filled!",
+            buttons: false,
+        });
+    } else if (password != confirmPassword) {
+        swal({
+            icon: "error",
+            title: "Error!",
+            text: "Passwords does not match!",
+            buttons: false,
+        });
+    } else {
+        swal({
+            icon: "success",
+            title: "Admin added!",
+            text: "Admin successfully added!",
+            buttons: false,
+        }).then((response) => {
+            formdata.append("name", name);
+            formdata.append("email", email);
+            formdata.append("password", password);
+            axios.post("/addadmin", formdata).then((response) => {
+                location.reload();
+            });
+        });
+    }
+});
+
 $("#deleteAll").click(function () {
     // $('input[name="locationthemes"]:checked');
     swal({
@@ -328,7 +365,7 @@ $("#deleteAllCertifications").click(function () {
     swal({
         icon: "warning",
         title: "Multiple Delete?",
-        text: "Are you sure you want to delete multiple Works and Experiences?",
+        text: "Are you sure you want to delete multiple Certifications?",
         buttons: {
             cancel: "Cancel",
             true: "OK",
@@ -349,8 +386,8 @@ $("#deleteAllCertifications").click(function () {
             });
             swal({
                 icon: "success",
-                title: "Works and Experiences Deleted!",
-                text: "The selected works and experiences have been deleted!",
+                title: "Certification Deleted!",
+                text: "The selected Certification have been deleted!",
                 buttons: false,
             }).then((response) => {
                 location.reload();
@@ -363,7 +400,7 @@ $("#deleteAllProjects").click(function () {
     swal({
         icon: "warning",
         title: "Multiple Delete?",
-        text: "Are you sure you want to delete multiple Works and Experiences?",
+        text: "Are you sure you want to delete multiple Projects?",
         buttons: {
             cancel: "Cancel",
             true: "OK",
@@ -384,12 +421,56 @@ $("#deleteAllProjects").click(function () {
             });
             swal({
                 icon: "success",
-                title: "Works and Experiences Deleted!",
-                text: "The selected works and experiences have been deleted!",
+                title: "Projects Deleted!",
+                text: "The selected Projects have been deleted!",
                 buttons: false,
             }).then((response) => {
                 location.reload();
             });
         }
     });
+});
+
+$("#deleteAllAdmins").click(function () {
+    swal({
+        icon: "warning",
+        title: "Multiple Delete?",
+        text: "Are you sure you want to delete multiple Admins?",
+        buttons: {
+            cancel: "Cancel",
+            true: "OK",
+        },
+    }).then((response) => {
+        if (response == "true") {
+            $("input[name='multidelete']:checked").each(function () {
+                const formdata = new FormData();
+                formdata.append("id", this.value);
+                axios
+                    .post("/deleteadmin", formdata)
+                    .then((response) => {
+                        console.log(response);
+                    })
+                    .catch((e) => {
+                        console.log(e);
+                    });
+            });
+            swal({
+                icon: "success",
+                title: "Admin Deleted!",
+                text: "The selected Admin has been deleted!",
+                buttons: false,
+            }).then((response) => {
+                location.reload();
+            });
+        }
+    });
+});
+
+const swiper = new Swiper(".swiper", {
+    effect: "cards",
+    grabCursor: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
 });

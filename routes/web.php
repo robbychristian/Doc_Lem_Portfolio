@@ -6,9 +6,10 @@ use App\Http\Controllers\AboutMeController;
 use App\Http\Controllers\CertificationController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\WorksAndExperiencesController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmailController;
 use App\Models\Visitors;
-
+use App\Models\WorksAndExperiences;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -55,6 +56,7 @@ Route::post('/editaboutme', [AboutMeController::class, 'editParagraphs'])->name(
 
 Route::get('/certifications', [CertificationController::class, 'index'])->name('admin.certification');
 Route::post('/addcertification', [CertificationController::class, 'addCertification']);
+Route::post('/editcertification', [CertificationController::class, 'editCertification']);
 Route::post('/deletecertification', [CertificationController::class, 'deleteCertification']);
 
 Route::get('/projects', [ProjectController::class, 'index']);
@@ -64,6 +66,12 @@ Route::post('/editproject', [ProjectController::class, 'editProject']);
 
 Route::get('/worksandexperiences', [WorksAndExperiencesController::class, 'index']);
 Route::post('/addworksandexperiences', [WorksAndExperiencesController::class, 'addWorksAndExperiences']);
+Route::post('/editworksandexperiences', [WorksAndExperiencesController::class, 'editWorksAndExperiences']);
 Route::post('/deleteworksandexperiences', [WorksAndExperiencesController::class, 'deleteWorksAndExperiences']);
+
+Route::get('/admins', [AdminController::class, 'index']);
+Route::post('/addadmin', [AdminController::class, 'addAdmin']);
+Route::post('/editadmin', [AdminController::class, 'editAdmin']);
+Route::post('/deleteadmin', [AdminController::class, 'deleteAdmin']);
 
 Route::post('/addemailsent', [EmailController::class, 'addEmailSent']);

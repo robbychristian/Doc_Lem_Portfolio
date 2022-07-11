@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\WorksAndExperiences;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class WorksAndExperiencesController extends Controller
 {
@@ -30,5 +31,16 @@ class WorksAndExperiencesController extends Controller
         DB::table("works_and_experiences")
             ->where('id', $request->id)
             ->delete();
+    }
+
+    public function editWorksAndExperiences(Request $request)
+    {
+        DB::table('works_and_experiences')
+            ->where('id', $request->id)
+            ->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'updated_at' => Carbon::now()
+            ]);
     }
 }

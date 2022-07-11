@@ -20,4 +20,5 @@ mix.js("resources/js/app.js", "public/js")
     .postCss("resources/css/app.css", "public/css", [require("tailwindcss")])
     .postCss("resources/css/hover-min.css", "public/css")
     .postCss("resources/css/projects.css", "public/css")
+    .postCss("resources/css/swiper.bundle.min.css", "public/css")
     .sass("resources/sass/app.scss", "public/css");

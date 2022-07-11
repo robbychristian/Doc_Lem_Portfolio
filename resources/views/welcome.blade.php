@@ -24,6 +24,9 @@
 
     {{-- External JS --}}
     <script src="{{ asset('js/chatbot.js') }}" defer></script>
+
+    {{-- swiper --}}
+    <link rel="stylesheet" href="{{ asset('css/swiper.bundle.min.css') }}">
 </head>
 
 <body>
@@ -345,9 +348,9 @@
                         <!-- Heading -->
                         <div class="rounded-l-full bg-red-100 md:bg-transparent">
                             <div class="flex items-center space-x-2">
-                                {{-- <div class="px-4 py-2 text-white rounded-full md:py-1 bg-red-500">
-                                    01
-                                </div> --}}
+                                <div class="px-4 py-2 text-white rounded-full md:py-1 bg-red-500">
+                                    ►
+                                </div>
                                 <h3 class="text-base font-bold md:mb-4 md:hidden">
                                     {{ $works_and_experience->title }}
                                 </h3>
@@ -376,14 +379,25 @@
                     </h2>
                     <div class="block h-1 md:h-2 w-20"></div>
                 </div>
-                <div class="p-12 md:p-0 grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-6 mt-0 md:mt-10">
-                    @foreach ($certifications as $details)
-                        <div
-                            class="uk-card uk-card-default space-y-4 p-6 border-solid border-2 border-slate-900 hvr-float">
-                            <h3 class="uk-card-title">{{ $details->title }}</h3>
-                            <p class="text-neutral-400 hidden md:block">{{ $details->description }}</p>
-                        </div>
-                    @endforeach
+
+                <div class="swiper mt-20">
+                    <div class="swiper-wrapper">
+                        @foreach ($certifications as $certification)
+                            <div class="swiper-slide border-solid border-2 border-slate-900">
+                                <div class="space-y-4 p-6">
+                                    <h3 class="font-bold text-3xl">{{ $certification->title }}</h3>
+                                    <p class="text-neutral-400 hidden md:block">{{ $certification->description }}
+                                    </p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="relative mt-10 w-28 mx-auto">
+                    <div class="absolute inset-x-0 bottom-0 text-sm">
+                        <div class="swiper-button-next text-red-500"></div>
+                        <div class="swiper-button-prev text-red-500"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -391,10 +405,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/gsap.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit-icons.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </body>
 
 </html>

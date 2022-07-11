@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Projects;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class ProjectController extends Controller
 {
@@ -62,7 +63,8 @@ class ProjectController extends Controller
                 ->update([
                     'title' => $request->title,
                     'description' => $request->description,
-                    'image_url' => $file_name
+                    'image_url' => $file_name,
+                    'updated_at' => Carbon::now()
                 ]);
         }
     }
