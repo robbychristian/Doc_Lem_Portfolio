@@ -15,10 +15,10 @@ class CreateAboutMesTable extends Migration
     {
         Schema::create('about_mes', function (Blueprint $table) {
             $table->id();
-            $table->string('first_paragraph');
-            $table->string('second_paragraph');
-            $table->string('third_paragraph');
-            $table->string('fourth_paragraph');
+            $table->string('first_paragraph', 1000);
+            $table->string('second_paragraph', 1000);
+            $table->string('third_paragraph', 1000);
+            $table->string('fourth_paragraph', 1000);
             $table->timestamps();
         });
     }
